@@ -157,7 +157,7 @@ def random_epi_logit_everystep(ground, samples_per_age=3, epi_sites=20000, noise
 
 @ignore_warnings(category=ConvergenceWarning)
 def pred_and_plot(samples, ages, samples2, ages2, outname, xlab, ylab, savepic=True, tick_step=25, fontsize=12,
-                         height=3.2, regr=None, filetype='.pdf', scatter_size=1, color='grey', n_jobs=1, line_color='black'):
+                         height=3.2, regr=None, filetype='.png', scatter_size=1, color='grey', n_jobs=1, line_color='black'):
     stats = []
     if regr:
         pred_y = regr.predict(samples2)
@@ -184,6 +184,7 @@ def pred_and_plot(samples, ages, samples2, ages2, outname, xlab, ylab, savepic=T
             g.ax_joint.set_xticklabels(g.ax_joint.get_xticks(), fontsize=fontsize)
             g.ax_joint.set_yticklabels(g.ax_joint.get_yticks(), fontsize=fontsize)
         plt.tight_layout()
+        plt.show()
         plt.savefig(f'{outname}_fontsize{fontsize}_height{height}{filetype}')
         plt.close()
     stats.append(pearsonr(ages2, pred_y))
