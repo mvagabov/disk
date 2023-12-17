@@ -185,7 +185,7 @@ def pred_and_plot(samples, ages, samples2, ages2, outname, xlab, ylab, savepic=T
             g.ax_joint.set_yticklabels(g.ax_joint.get_yticks(), fontsize=fontsize)
         plt.tight_layout()
         plt.show()
-        plt.savefig(f'{outname}_fontsize{fontsize}_height{height}{filetype}')
+        #plt.savefig(f'{outname}_fontsize{fontsize}_height{height}{filetype}')
         plt.close()
     stats.append(pearsonr(ages2, pred_y))
     stats.append(spearmanr(ages2, pred_y))
