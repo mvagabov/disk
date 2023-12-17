@@ -156,8 +156,8 @@ def random_epi_logit_everystep(ground, samples_per_age=3, epi_sites=20000, noise
     return samples, ages
 
 @ignore_warnings(category=ConvergenceWarning)
-def pred_and_plot(samples, ages, samples2, ages2, outname, xlab, ylab, savepic=True, tick_step=25, fontsize=12,
-                         height=3.2, regr=None, filetype='.png', scatter_size=1, color='grey', n_jobs=1, line_color='black'):
+def pred_and_plot(samples, ages, samples2, ages2, xlab, ylab, savepic=True, tick_step=25, fontsize=12,
+                         height=3.2, regr=None,  scatter_size=1, color='grey', n_jobs=1, line_color='black'):
     stats = []
     if regr:
         pred_y = regr.predict(samples2)
@@ -167,7 +167,7 @@ def pred_and_plot(samples, ages, samples2, ages2, outname, xlab, ylab, savepic=T
         pred_y = regr.predict(samples2)
 
     if savepic:
-        sns.set(style='white') #font
+        sns.set(font='Times New Roman', style='white')
         g = sns.jointplot(x=ages2, y=pred_y, kind='reg', height=height,
                           scatter_kws={'s': scatter_size}, color=color, joint_kws={'line_kws':{'color':line_color}}) 
         g.ax_joint.set_ylim([0, 99])
