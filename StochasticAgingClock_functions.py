@@ -32,7 +32,7 @@ dot_color = 'grey'
 line_color = 'black'
 xlab = 'Simulated age'
 ylab = 'Predicted age'
-n_jobs=3
+n_jobs=6
 
 
 def correct_Bio_Age(corr_arr):
